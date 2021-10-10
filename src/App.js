@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+import {GlobalStyle} from "./components/basic-styles";
+import Popup from './components/popup/';
+import InfoBtn from './components/infobtn';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [visible, setVisible] = useState();
+    return (
+        <div>
+            <GlobalStyle/>
+            <InfoBtn onClick={() => setVisible(true)}/>
+            <Popup title="Title" className={"rrrrrrrrrrr"} visible={visible} setVisible={ () =>setVisible(false)}>Content</Popup>
+        </div>
+    );
 }
 
 export default App;
